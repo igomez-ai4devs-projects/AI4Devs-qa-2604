@@ -43,3 +43,65 @@ Agent: Claude Code - Sonnet 4.6
 Se ha generado 7 user stories y, añadido en la carpeta LTI-IGR/user-stories.
 
 </br>
+
+## Prompt 4:
+
+Agent: Claude Code - Sonnet 4.6
+
+### Request:
+
+Como Product Manager del proyecto AI4Devs y experto en BDD, tengo estas historias de usuario 'LTI-IGR/user-stories'. Genera escenarios BDD en formato Gherkin (Feature + Scenarios) cubriendo los principales caminos, ya sea el caso feliz como posibles errores.
+
+Reglas: un único When por escenario, lenguaje del dominio (no UI), evita 'click' o IDs técnicos. Usa Scenario Outline si los casos comparten estructura.
+
+### Response:
+
+Se han generado las features 'features/candidate-stage-change' y 'features/position-page-loading'.
+
+</br>
+
+## Prompt 5:
+
+Agent: Claude Code - Sonnet 4.6
+
+### Request:
+
+¿Puedes verificar que se cumplen estos requisitos en los .features?
+
+Debes crear pruebas E2E para verificar los siguientes escenarios:
+
+1. Carga de la Página de Position:
+
+- Verifica que el título de la posición se muestra correctamente.
+- Verifica que se muestran las columnas correspondientes a cada fase del proceso de contratación.
+- Verifica que las tarjetas de los candidatos se muestran en la columna correcta según su fase actual.
+
+2. Cambio de Fase de un Candidato:
+
+- Simula el arrastre de una tarjeta de candidato de una columna a otra.
+- Verifica que la tarjeta del candidato se mueve a la nueva columna.
+- Verifica que la fase del candidato se actualiza correctamente en el backend mediante el endpoint PUT /candidate/:id.
+
+### Response:
+
+Verification that the requested E2E scenarios are covered by the Gherkin `.feature` files in `LTI-IGR/features/`.
+
+## 1. Position page loading
+
+| Requirement | Scenario in `.feature` | Status |
+| --- | --- | --- |
+| Position title is displayed correctly | `position-page-loading.feature` → _"Recruiter opens a position and sees its interview pipeline"_ → `the pipeline is titled with the position name "Senior Backend Engineer"` | ✅ |
+| Columns for each hiring-process stage are displayed | same scenario → `the pipeline shows the stages in this order` | ✅ |
+| Candidate cards appear in the correct column per current stage | `Candidates are shown in their current stage` → _Alice in Initial Screening; Bob & Carol in Technical Interview_ | ✅ |
+
+## 2. Candidate stage change
+
+| Requirement | Scenario in `.feature` | Status |
+| --- | --- | --- |
+| Simulate dragging a candidate card from one column to another | `candidate-stage-change.feature` → `Recruiter advances a candidate to the next stage` (`moves … to the "Technical Interview" stage`) | ✅ |
+| The candidate card moves to the new column | same scenario → `is shown in the "Technical Interview" stage` | ✅ |
+| The candidate's stage is updated in the backend via `PUT /candidates/:id` | same scenario → `the candidate's current stage is saved as "Technical Interview"` (expressed in domain language) | ✅ |
+
+**Result:** all requested requirements are covered by the feature files.
+
+</br>
