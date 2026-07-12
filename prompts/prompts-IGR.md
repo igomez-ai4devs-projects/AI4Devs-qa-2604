@@ -105,3 +105,17 @@ Verification that the requested E2E scenarios are covered by the Gherkin `.featu
 **Result:** all requested requirements are covered by the feature files.
 
 </br>
+
+## Prompt 6:
+
+Agent: Claude Code - Sonnet 4.6
+
+### Request:
+
+Lee 'features/candidate-stage-change.feature' y 'features/position-page-loading.feature' y genera los step definitions en TypeScript. Recuerda que el código y comentarios deben ser implemntados en inglés.
+
+### Response:
+
+Se han generado los step-definitions.
+
+</br>
