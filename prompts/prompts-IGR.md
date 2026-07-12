@@ -29,3 +29,17 @@ Como experto Product Owner analiza todo el codigo PRD.md (documento de requisito
 Se ha generado un fichero **PRD.md** con las funcionalidades principales para el proyecto.
 
 </br>
+
+## Prompt 3:
+
+Agent: Claude Code - Sonnet 4.6
+
+### Request:
+
+@.claude/commands/user-stories.md El fichero PRD.md actúa como PRD con todos los links a la información necesaria que define las funcionalidades clave para crear un sistema ATS (Applicant-Tracking System). Define las user stories principales. Idioma para las user stories: inglés. La terminología debe ser acorde al sector ATS. Cubre sólo estos dominios o funcionalidades: 'Position page loading' y 'Candidate stage change'.
+
+### Response:
+
+Se ha generado 7 user stories y, añadido en la carpeta LTI-IGR/user-stories.
+
+</br>
